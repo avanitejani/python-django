@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inset and view</title>
+    {% comment %} <style>
+        hr{
+            width: 70%;
+            margin: auto;
+        }
+        th{
+            width: 10%;
+            border: 1px solid green;
+            margin: auto;
+        }
+        td{
+            border: 1px solid green;
+            text-align: center;
+        }
+    </style> {% endcomment %}
+    
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    center {
+        display: block;
+        margin: 20px auto;
+        width: 80%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    hr {
+        width: 70%;
+        margin: 20px auto;
+        border: none;
+        border-top: 1px solid #ddd;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    td img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+
+    input[type="text"], input[type="file"], input[type="submit"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: calc(100% - 18px);
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+</head>
+<body>
+    <center>
+
+        <h2><a href="/">back</a></h2>
+        <h1>Isert Data</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="htmlName"></td>
+                </tr>
+                <tr>
+                    <td>Surname</td>
+                    <td><input type="text" name="htmlSur"></td>
+                </tr>
+                <tr>
+                    <td>Img</td>
+                    <td><input type="file" name="htmlImg" id=""></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" ></td>
+                </tr>
+
+            </table>
+            <br><br><hr><br>
+            <h1>View Data</h1>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Img</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                
+                {% for i in allData %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.Name}}</td>
+                    <td>{{i.Surname}}</td>
+                    <td><img src="media/{{i.Img}}" alt="" height="60px" width="60px"></td>
+                    <td><a href="delete/{{i.id}}">Delete</a></td>
+
+                    <td><a href="edit/{{i.id}}">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        
+        </form>
+
+    </center>
+    
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- reportcard vali app mathi  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr,
+        td,
+        form,
+        .pagination {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 align="center">Student Information</h1>
+
+    <form align="center">
+        <input type="text" name="search" />
+        <input type="submit" />
+    </form>
+
+    <table border="3" align="center" style="padding: 10px;">
+
+        <tr>
+            <th style="padding: 10px;">Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Depatment</th>
+        </tr>
+
+        {%for std in queryset%}
+        <tr>
+            <td><a href="{%url 'marks' std.student_id %}">
+                    {{std.student_id}}
+                </a></td>
+            <td>{{std.name}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.department}}</td>
+        </tr>
+        {%endfor%}
+
+    </table>
+
+    
+
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    
+<center>
+
+    <h2>Insert Form</h2>
+
+
+    <form action="{% url 'insert' %}" method="post" >
+
+        {% comment %} data django ma secure rahe te mate aa csrf token lakhvi jaruri 6e  {% endcomment %}
+        {%csrf_token%}
+
+        <table>
+            <tr>
+                <td>Firstname </td>
+                <td><input type="text" name="fname" ><br></td>
+            </tr>
+        
+            <tr>
+                <td>Lastname </td>
+                <td><input type="text" name="lname" ><br></td>
+            </tr>
+        
+            <tr>
+                <td>Email </td>
+                <td><input type="email" name="email" ><br></td>
+            </tr>
+        
+            <tr>
+                <td>Contact</td>
+                <td><input type="tel" name="contact" ><br></td>
+            </tr>
+        
+            <tr><td><br><input type="submit" value="insert"></td></tr>
+
+        </table>
+
+        </form>
+
+</center>
+
+        
+
+
+
+       
+
+       
+    
+        
+    
+        
+        
+        
+    
+    
+
+
+</body>
+</html>

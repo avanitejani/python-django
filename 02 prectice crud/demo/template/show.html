@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+
+        <h1>Show data Table</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Img</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+
+            {% if key1 %}
+            <tbody>
+                
+                {% for i in key1 %}
+
+                    <tr>
+                        <th>{{i.id}}</th>
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        <td><img src="{{MEDIA_URL}}{{i.img.url}}" hight='75px' width="75px" alt=""></td>
+                            {% comment %} src ni unser j aam path nakhvo padse to j img show thase nkr 1klo path j dekhase  {% endcomment %}
+                        <td>
+                            <form action="{% url 'update' px=i.id %}" method="post" name="EditForm">
+                                {% csrf_tokan $}
+                                <input type="submit" value="Edit">
+                            </form>
+                        </td>
+                        <!-- <td>
+                            <form action="{% url 'delete' px=i.id %}" method="post" name="DeleteForm">
+                                {% csrf_tokan $}
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td> -->
+                    </tr>
+                    
+                
+                {% endfor %}
+
+            </tbody>
+            {% endif %}
+        
+        </table>
+
+    </center>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reg</title>
+
+    <style>
+        #t2,
+        th {
+            border: 1px solid black;
+            padding: 20px 50px;
+            margin: auto;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <center>
+        <h3><a href='/'> Back </a></h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <table>
+                <thead>
+                    <tr>
+                        <h1>Insert data</h1>
+                    </tr>
+                    <tr>
+                        <td><label for="">name</label></td>
+                        <td><input type="text" name="hname"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">img</label></td>
+                        <td><input type="file" name="himg"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit"></td>
+                    </tr>
+                </thead>
+
+            </table>
+            <hr>
+            <table id="t2">
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Img</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+
+                {% for i in allData %}
+
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.Name}}</td>
+                    <td><img src="media/{{i.Img}}" alt="" height="50px" width="50px"></td>
+                    <td><a href="delete/{{ i.id }}">Delete</a></td>
+                    <td><a href="edit/{{ i.id }}">Edit</a></td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+
+        </form>
+
+
+
+
+
+
+
+    </center>
+</body>
+
+</html>

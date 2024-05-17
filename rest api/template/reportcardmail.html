@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="center">Student Progerss Report</h1>
+    <table border="1" align="center">
+        <tr>
+            <th>Id</th>
+            <th>Subject</th>
+            <th>Marks</th>
+
+        </tr>
+        {%for marks in queryset%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{marks.subject}}</td>
+            <td>{{marks.marks}}</td>
+
+        </tr>
+        {%endfor%}
+        <tr>
+            <td>Total</td>
+            <td colspan="2" style="text-align: end; font-weight: bold">
+                {{total.total}}</td>
+        </tr>
+        <tr>
+            <td>Rank</td>
+            <td colspan="2" style="text-align: end; font-weight: bold">
+                {{rank}}</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

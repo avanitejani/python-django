@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '../static/style.css' %}">
+  </head>
+
+  <body>
+    <h3><a href="/">index page</a></h3>
+
+    
+    <form action="" method="post" enctype="multipart/form-data">
+        <h1>Update form</h1>
+      {%csrf_token%}
+      <input
+        type="text"
+        name="uname"
+        value="{{data.uname}}"
+        placeholder="Enter Username"
+      /><br />
+
+      <input
+        type="text"
+        name="email"
+        value="{{data.email}}"
+        placeholder="Enter Email"
+      /><br />
+
+      <input
+        type="password"
+        name="password"
+        value="{{data.password}}"
+        placeholder="Enter password"
+      /><br />
+
+      <label for="">Gender</label>
+      <input type="radio" value="male" name="gender" {% if data.gender == 'male' %} checked {% endif %}  />Male
+      <input type="radio" value="female" name="gender" {% if data.gender == 'female' %} checked {% endif %}  />Female <br />
+
+      <label for="">Languages</label>
+      <input type="checkbox" value="gujarati" name="lng" {% if 'gujarati' in data.lng %} checked {% endif %}  />Gujarati
+      <input type="checkbox" value="hindi" name="lng"  {% if 'hindi' in data.lng %} checked {% endif %} />Hindi
+      <input type="checkbox" value="english" name="lng"  {% if 'english' in data.lng %} checked {% endif %} />English <br />
+
+      <label for="">Country</label>
+      <select name="country" id="country">
+        <option value="india" {% if data.country == 'india' %} selected {% endif %}>India</option>
+        <option value="usa"  {% if data.country == 'usa' %} selected {% endif %}>USA</option>
+        <option value="canada" {% if data.country == 'canada' %} selected {% endif %}>Canada</option></select
+      ><br />
+
+      <img
+        src="/media/{{data.img}}"
+        alt="{{data.img}}"
+        height="50px"
+        width="50px"
+      />
+      <input type="file" name="img" />
+      <br />
+
+      <input type="submit" />
+    </form>
+
+    <br />
+    <br />
+  </body>
+</html>

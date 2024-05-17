@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+</head>
+<body>
+    
+    <center>
+        <h2>update form</h2>
+
+        {% if key2 %}
+
+        <form action="" method="post">
+        {% csrf_tokan %}
+        <table>
+           
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="htmlname" value="{{key2.name}}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="htmlemail"></td>
+            </tr>
+            <tr>
+                <td>img</td>
+                <td><input type="file" name="htmlimg"></td>
+            </tr>
+
+            <tr>
+                <td><br><input type="submit" value="Updare"></td>
+            </tr>
+            
+        </table>
+
+        </form>
+        {% endif %}
+
+    </center>
+
+</body>
+</html>

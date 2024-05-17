@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update</title>
+</head>
+
+<body>
+    <center>
+        <h3><a href="/">index page</a></h3>
+        <table>
+            <form action="" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+
+
+                <thead>
+                    <tr>
+                        <th>
+                            <h1>update form</h1>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td><label for="">name</label></td>
+                        <td><input type="text" name="hname" value="{{data.Name}}"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">img</label></td>
+                        <td><img src="/media/{{data.Img}}" height="50px" width="50px" alt="{{data.Img}}" /></td>
+                        <td><input type="file" name="himg" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit"></td>
+                    </tr>
+                </thead>
+
+
+
+            </form>
+        </table>
+
+    </center>
+
+</body>
+
+</html>

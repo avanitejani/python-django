@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    
+<center>
+
+    <h2>Update Form</h2>
+
+    {% if key2 %}
+
+    <form action="{% url 'update' pk=key2.id %}" method="post" >
+
+        {% comment %} data django ma secure rahe te mate aa csrf token lakhvi jaruri 6e  {% endcomment %}
+        {%csrf_token%}
+
+        <table>
+
+            {% comment %}    value="{{key2.Firstname}}" = django aya aapdne key ni help thi data fatch krvani facility aape6e        {% endcomment %}
+
+
+            <tr>
+                <td>Firstname </td>
+                <td><input type="text" name="fname" value="{{key2.Firstname}}"><br></td>
+            </tr>
+        
+            <tr>
+                <td>Lastname </td>
+                <td><input type="text" name="lname" value="{{key2.Lastname}}" ><br></td>
+            </tr>
+        
+            <tr>
+                <td>Email </td>
+                <td><input type="email" name="email" value="{{key2.Email}}" ><br></td>
+            </tr>
+        
+            <tr>
+                <td>Contact</td>
+                <td><input type="tel" name="contact" value="{{key2.Contact}}" ><br></td>
+            </tr>
+        
+            <tr><td><br><input type="submit" value="Updare"></td></tr>
+
+        </table>
+
+        </form>
+        {% endif %}
+
+</center>
+
+        
+
+
+
+       
+
+       
+    
+        
+    
+        
+        
+        
+    
+    
+
+
+</body>
+</html>
